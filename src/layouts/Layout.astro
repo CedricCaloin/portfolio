@@ -1,0 +1,28 @@
+---
+import '../styles/global.scss'
+import Nav from '../components/Navigation.astro'
+
+
+const { pageTitle } = Astro.props;
+---
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+
+  <body class="">
+
+    <Nav></Nav>
+
+    <slot />
+
+    <script>
+      import "bootstrap/dist/js/bootstrap.bundle.min.js";
+    </script>
+
+  </body>
+
+</html>
