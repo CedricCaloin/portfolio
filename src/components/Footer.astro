@@ -1,0 +1,50 @@
+---
+import {frontmatter} from "./Informations.md"
+
+const {navigation} = frontmatter;
+const linkedin = "https://linkedin.com/in/c%C3%A9dric-caloin-229a26365";
+const github = "https://github.com/CedricCaloin/";
+
+---
+<div id="footer" class="bg-body-secondary d-print-none border-top border-2 mt-10 mb-0">
+    <div class="container">
+        <div class="row justify-content-around my-4">
+
+            <div class="col-4 text-center">
+                <h4>Navigation</h4>
+                <ul class="list-group list-group-flush">
+                    {navigation.map(([titre,lien] : [string,string]) => (
+                    <li class="list-group-item bg-transparent">
+                    <a class="nav-link active" aria-current="page" href={`#${lien}`}>{titre}</a>
+                    </li>))}
+                </ul>
+            </div>
+
+            <div class="col-4 text-center">
+                <h4>Réseaux sociaux</h4>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item bg-transparent">
+                    <a class="nav-link active" aria-current="page" target="_blank" 
+                    href={linkedin}>Linkedin</a>
+                    </li>
+
+                    <li class="list-group-item bg-transparent">
+                    <a class="nav-link active" aria-current="page" target="_blank" 
+                    href={github}>Github</a>
+                    </li>
+
+                    <li class="list-group-item bg-transparent">
+                    <a class="nav-link active" aria-current="page" target="_blank" 
+                    href="mailto:caloincedric4@gmail.com">caloincedric4@gmail.com</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <hr class="w-75 mx-auto"/>
+
+    <p class="pb-4 mx-10">Portfolio de Cédric Caloin - mis à jour en 2026</p>
+
+</div>

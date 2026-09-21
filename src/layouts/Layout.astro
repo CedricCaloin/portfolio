@@ -1,6 +1,7 @@
 ---
 import '../styles/global.scss'
 import Nav from '../components/Navigation.astro'
+import Footer from '../components/Footer.astro'
 
 
 const { pageTitle } = Astro.props;
@@ -18,6 +19,8 @@ const { pageTitle } = Astro.props;
     <Nav></Nav>
 
     <slot />
+
+    <Footer></Footer>
 
     <script>
       import "bootstrap/dist/js/bootstrap.bundle.min.js";
