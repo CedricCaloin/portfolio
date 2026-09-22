@@ -1,5 +1,9 @@
 @import "bootstrap/scss/bootstrap";
 
+html {
+  scroll-behavior: smooth;
+}
+
 .mx-10 {
   margin-left: ($spacer * 5) !important;
   margin-right: ($spacer * 5) !important;
@@ -7,4 +11,24 @@
 
 .mt-10 {
   margin-top: ($spacer * 5) !important;
+}
+
+section, [id] {
+  scroll-margin-top: 80px;
+}
+
+.color-bg {
+  background-color: $gray-200;
+}
+
+.color-cards {
+  background-color: $white;
+}
+
+.color-txt {
+  color : $blue-900;
+}
+
+.color-imp {
+  color : $teal-600;
 }

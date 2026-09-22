@@ -3,39 +3,41 @@ import "../layouts/Layout.astro"
 import Base from "../layouts/Layout.astro"
 
 const pageTitle = "Cédric Caloin"
+
+import {frontmatter} from "../components/informations.md"
+
+const {parcours} = frontmatter;
 ---
 
 <Base pageTitle={pageTitle}>
 
-	<h1 id="Accueil" class="text-center">
-		<strong><small>Salut, moi c'est </small>{pageTitle}</strong></h1>
+	<h1 id="Accueil" class="text-center mt-10">
+		<small class="color-txt">Salut, moi c'est </small><strong class="color-imp">{pageTitle}</strong></h1>
 
 	<p>Je suis blabla</p>
 
 
-	<h2 id="Parcours" class="mx-10"><strong>MON PARCOURS</strong></h2>
+	<h2 id="Parcours" class="mx-10 mt-10"><strong>MON PARCOURS</strong></h2>
 
 	<div class="row m-3">
+		{parcours.map((item: {titre : string, ecole : string, annees : string, lieu : string, description : string[]}) => (
 		<div class="col-sm-6 mb-3 mb-sm-0">
-			<div class="card">
-			<div class="card-body bg-body-secondary">
-				<h5 class="card-title">Special title treatment</h5>
-				<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>				
+			<div class="card h-100">
+			<div class="card-body color-cards position-relative">
+				<h5 class="card-title">{item.titre}</h5>
+				<p class="card-text position-absolute top-0 end-0 me-2">{item.annees}</p>
+				<p class="card-text"><strong>{item.ecole}</strong> à {item.lieu}</p>
+				<ol class="list-group list-group mt-auto">
+					{item.description.map((infos: string) => (
+					<li class="list-group-item bg-transparent border-0">{infos}</li>))}	
+				</ol>			
 			</div>
 			</div>
-		</div>
-		<div class="col-sm-6">
-			<div class="card">
-			<div class="card-body bg-body-secondary">
-				<h5 class="card-title">Special title treatment</h5>
-				<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-			</div>
-			</div>
-		</div>
+		</div>))}
 	</div>
 
 
-	<h2 id="Projets" class="mx-10"><strong>MES PROJETS</strong></h2>
+	<h2 id="Projets" class="mx-10 mt-10"><strong>MES PROJETS</strong></h2>
 
 	<div class=" container-fluid">
 		<div>
@@ -84,7 +86,7 @@ const pageTitle = "Cédric Caloin"
 	</div>
 
 
-	<h2 id="Moi" class="mx-10"><strong>À PROPOS DE MOI</strong></h2>
+	<h2 id="Moi" class="mx-10 mt-10"><strong>À PROPOS DE MOI</strong></h2>
 
 	<div class="container-fluid">
 		<div class="row row-cols-1 row-cols-md-3 g-4">
