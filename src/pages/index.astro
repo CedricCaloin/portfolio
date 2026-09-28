@@ -6,15 +6,15 @@ const pageTitle = "Cédric Caloin"
 
 import {frontmatter} from "../components/informations.md"
 
-const {parcours} = frontmatter;
+const {parcours, sousTitre, projets, competences, contact} = frontmatter;
 ---
 
 <Base pageTitle={pageTitle}>
 
 	<h1 id="Accueil" class="text-center mt-10">
-		<small class="color-txt">Salut, moi c'est </small><strong class="color-imp">{pageTitle}</strong></h1>
-
-	<p>Je suis blabla</p>
+		<small class="color-txt">Hello, moi c'est </small><strong class="color-imp">{pageTitle}</strong>
+	</h1>
+	<h5 class="color-imp text-center">{sousTitre}</h5>
 
 
 	<h2 id="Parcours" class="mx-10 mt-10"><strong>MON PARCOURS</strong></h2>
@@ -22,14 +22,16 @@ const {parcours} = frontmatter;
 	<div class="row m-3">
 		{parcours.map((item: {titre : string, ecole : string, annees : string, lieu : string, description : string[]}) => (
 		<div class="col-sm-6 mb-3 mb-sm-0">
-			<div class="card h-100">
-			<div class="card-body color-cards position-relative">
-				<h5 class="card-title">{item.titre}</h5>
-				<p class="card-text position-absolute top-0 end-0 me-2">{item.annees}</p>
-				<p class="card-text"><strong>{item.ecole}</strong> à {item.lieu}</p>
-				<ol class="list-group list-group mt-auto">
+			<div class="card h-100 border border-2 color-cards color-border rounded-3">
+			<div class="card-body color-txt position-relative">
+				<div class="card-title m-3 d-flex justify-content-between align-items-center">
+					<span class="h4 mb-0">{item.titre}</span>
+					<span class="">{item.annees}</span>
+				</div>
+				<p class=" h5 card-text ms-4"><strong class="color-imp">{item.ecole}</strong> à {item.lieu}</p>
+				<ol class="list-group mt-auto">
 					{item.description.map((infos: string) => (
-					<li class="list-group-item bg-transparent border-0">{infos}</li>))}	
+					<li class="list-group-item list-group-item-action text-center color-txt border-0">{infos}</li>))}	
 				</ol>			
 			</div>
 			</div>
@@ -40,49 +42,38 @@ const {parcours} = frontmatter;
 	<h2 id="Projets" class="mx-10 mt-10"><strong>MES PROJETS</strong></h2>
 
 	<div class=" container-fluid">
-		<div>
-			<button type="button" class="btn btn-outline-warning active ms-4 rounded-pill" data-bs-toggle="button" autocomplete="off" aria-pressed="true">CSS</button>
-			<button type="button" class="btn btn-outline-success active mx-4 rounded-pill" data-bs-toggle="button" autocomplete="off" aria-pressed="true">Python</button>
+		<div class="color-bggreen my-3 rounded-pill d-inline-block">
+			<input type="checkbox" class="btn-check" id="scolaire" value="scolaire" checked autocomplete="off">
+			<label class="btn btn-outline-light m-2 rounded-pill" for="scolaire">scolaire</label>
+
+			<input type="checkbox" class="btn-check" id="personnel" value="personnel" checked autocomplete="off">
+			<label class="btn btn-outline-light ms-1 me-4 m-2 rounded-pill" for="personnel">personnel</label>
+
+			<input type="checkbox" class="btn-check" id="informatique" value="informatique" checked autocomplete="off">
+			<label class="btn btn-outline-light ms-4 m-2 rounded-pill" for="informatique">informatique</label>
+
+			<input type="checkbox" class="btn-check" id="industriel" value="industriel" checked autocomplete="off">
+			<label class="btn btn-outline-light ms-1 m-2 rounded-pill" for="industriel">industriel</label>
+
+
 		</div>
 
-		<div class="row row-cols-1 row-cols-md-3 g-4">
-			<div class="col ">
-				<div class="card h-100">
+		<div id="listeProjets" class="row row-cols-1 row-cols-md-3 g-4">
+			{projets.map((item: {titre : string, type : string, domaine : string}) => (
+			<div class="col" data-type={item.type} data-domaine={item.domaine}>
+				<div class="card h-100 color-border border-1 color-txt">
 				<img src="..." class="card-img-top" alt="...">
 				<div class="card-body">
-					<h5 class="card-title">Card title</h5>
+					<h5 class="card-title">{item.titre}</h5>
+					<ul class="list-group list-group-horizontal">
+  						<li class="list-group-item">{item.type}</li>
+						<li class="list-group-item">{item.domaine}</li>
+					</ul>
 					<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 				</div>
 				</div>
-			</div>
-			<div class="col">
-				<div class="card h-100">
-				<img src="..." class="card-img-top" alt="...">
-				<div class="card-body">
-					<h5 class="card-title">Card title</h5>
-					<p class="card-text">This is a short card.</p>
-				</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card h-100">
-				<img src="..." class="card-img-top" alt="...">
-				<div class="card-body">
-					<h5 class="card-title">Card title</h5>
-					<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-				</div>
-				</div>
-			</div>
-			<div class="col">
-				<div class="card h-100">
-				<img src="..." class="card-img-top" alt="...">
-				<div class="card-body">
-					<h5 class="card-title">Card title</h5>
-					<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-				</div>
-				</div>
-			</div>
-			</div>
+			</div>))}
+		</div>
 	</div>
 
 
@@ -91,18 +82,31 @@ const {parcours} = frontmatter;
 	<div class="container-fluid">
 		<div class="row row-cols-1 row-cols-md-3 g-4">
 			<div class="col-md-8">
-				<div class="card h-100">
+				<div class="card h-100 color-txt">
 				<div class="card-body">
 					<h3 class="card-title text-center">COMPÉTENCES</h3>
-					<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
 				</div>
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="card h-100">
+				<div class="card h-100 color-txt">
 				<div class="card-body">
 					<h3 class="card-title text-center">CONTACT</h3>
-					<p class="card-text">This is a short card.</p>
+					<ol class="list-group mt-auto">
+						<li class="list-group-item list-group-item-action text-center color-txt border-0">{contact.numero}</li>
+						<li class="list-group-item list-group-item-action text-center color-txt border-0">
+							<a class="nav-link active color-txt" aria-current="page" target="_blank" 
+                    		href="mailto:caloincedric4@gmail.com">caloincedric4@gmail.com</a>
+						</li>
+						<li class="list-group-item list-group-item-action text-center color-txt border-0">
+							<a class="nav-link active color-txt" aria-current="page" target="_blank" 
+							href={contact.linkedin}>Linkedin</a>
+						</li>
+						<li class="list-group-item list-group-item-action text-center color-txt border-0">
+							<a class="nav-link active color-txt" aria-current="page" target="_blank" 
+                    		href={contact.github}>Github</a>
+						</li>
+					</ol>
 				</div>
 				</div>
 			</div>

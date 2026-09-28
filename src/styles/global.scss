@@ -21,6 +21,10 @@ section, [id] {
   background-color: $gray-200;
 }
 
+.color-bggreen {
+  background-color: $teal-600;
+}
+
 .color-cards {
   background-color: $white;
 }
@@ -31,4 +35,8 @@ section, [id] {
 
 .color-imp {
   color : $teal-600;
+}
+
+.color-border {
+  border-color: $teal-600 !important;
 }
