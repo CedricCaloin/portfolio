@@ -2,6 +2,7 @@
 import "../layouts/Layout.astro"
 import Base from "../layouts/Layout.astro"
 
+
 const pageTitle = "Cédric Caloin"
 
 import {frontmatter} from "../components/informations.md"
@@ -42,7 +43,7 @@ const {parcours, sousTitre, projets, competences, contact} = frontmatter;
 	<h2 id="Projets" class="mx-10 mt-10"><strong>MES PROJETS</strong></h2>
 
 	<div class=" container-fluid">
-		<div class="color-bggreen my-3 rounded-pill d-inline-block">
+		<div class="color-bggreen my-3 rounded-pill d-inline-block m-4">
 			<input type="checkbox" class="btn-check" id="scolaire" value="scolaire" checked autocomplete="off">
 			<label class="btn btn-outline-light m-2 rounded-pill" for="scolaire">scolaire</label>
 
@@ -58,18 +59,18 @@ const {parcours, sousTitre, projets, competences, contact} = frontmatter;
 
 		</div>
 
-		<div id="listeProjets" class="row row-cols-1 row-cols-md-3 g-4">
+		<div id="listeProjets" class="row row-cols-1 row-cols-md-2 g-4 m-3">
 			{projets.map((item: {titre : string, type : string, domaine : string}) => (
 			<div class="col" data-type={item.type} data-domaine={item.domaine}>
-				<div class="card h-100 color-border border-1 color-txt">
+				<div class="card h-100 color-border border-2 color-txt">
 				<img src="..." class="card-img-top" alt="...">
 				<div class="card-body">
 					<h5 class="card-title">{item.titre}</h5>
 					<ul class="list-group list-group-horizontal">
-  						<li class="list-group-item">{item.type}</li>
+  					<li class="list-group-item">{item.type}</li>
 						<li class="list-group-item">{item.domaine}</li>
 					</ul>
-					<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+					<p class="card-text">This inal content. This content is a little bit longer.</p>
 				</div>
 				</div>
 			</div>))}
@@ -80,33 +81,57 @@ const {parcours, sousTitre, projets, competences, contact} = frontmatter;
 	<h2 id="Moi" class="mx-10 mt-10"><strong>À PROPOS DE MOI</strong></h2>
 
 	<div class="container-fluid">
-		<div class="row row-cols-1 row-cols-md-3 g-4">
+		<div class="row row-cols-1 row-cols-md-3 g-4 m-3">
 			<div class="col-md-8">
-				<div class="card h-100 color-txt">
+				<div class="card h-100 color-border border-2 color-txt">
 				<div class="card-body">
 					<h3 class="card-title text-center">COMPÉTENCES</h3>
+
+					<div id="ProgrammationCompetences" class="row row-cols-1 row-cols-md-3 g-4 m-3">
+						{competences.programmation.map((item: {categorie : string, langages : string[]}) => (
+						<div class="col text-center border-end border-start" >
+							<h5 class="color-imp">{item.categorie}</h5>
+							<ol class="list-group mt-auto">
+							{item.langages.map((liste : string) => (
+								<li class="list-group-item list-group-item-action border-0">{liste}
+								</li>))}
+							</ol>
+						</div>))}
+					</div>
+
 				</div>
 				</div>
 			</div>
+
 			<div class="col-md-4">
-				<div class="card h-100 color-txt">
+				<div class="card h-100 color-border border-2 color-txt">
 				<div class="card-body">
 					<h3 class="card-title text-center">CONTACT</h3>
+
 					<ol class="list-group mt-auto">
 						<li class="list-group-item list-group-item-action text-center color-txt border-0">{contact.numero}</li>
 						<li class="list-group-item list-group-item-action text-center color-txt border-0">
 							<a class="nav-link active color-txt" aria-current="page" target="_blank" 
-                    		href="mailto:caloincedric4@gmail.com">caloincedric4@gmail.com</a>
+              	href="mailto:caloincedric4@gmail.com">caloincedric4@gmail.com</a>
 						</li>
-						<li class="list-group-item list-group-item-action text-center color-txt border-0">
-							<a class="nav-link active color-txt" aria-current="page" target="_blank" 
-							href={contact.linkedin}>Linkedin</a>
-						</li>
-						<li class="list-group-item list-group-item-action text-center color-txt border-0">
-							<a class="nav-link active color-txt" aria-current="page" target="_blank" 
-                    		href={contact.github}>Github</a>
-						</li>
+						<li class="list-group-item list-group-item-action text-center color-txt border-0">{contact.permis}</li>
 					</ol>
+
+					<ul class="list-group list-group-horizontal">
+						<li class="list-group-item list-group-item-action text-center color-txt border-0">
+							<a class="nav-link active color-txt" aria-current="page" target="_blank" href={contact.linkedin}>
+								<i class="bi bi-linkedin fs-4 color-imp"></i>
+								<span class="ms-2">Linkedin</span>
+							</a>
+						</li>
+						<li class="list-group-item list-group-item-action text-center color-txt border-0">
+							<a class="nav-link active color-txt" aria-current="page" target="_blank" href={contact.github}>
+								<i class="bi bi-github fs-4 color-imp"></i>
+								<span class="ms-2">Github</span>
+							</a>
+						</li>
+					</ul>
+
 				</div>
 				</div>
 			</div>

@@ -31,14 +31,15 @@ competences:
   programmation:
     - categorie: "Maîtrisés / Autonome"
       langages: ["C", "HTML/CSS", "SQL"]
-    - categorie: "Intermédiarie"
+    - categorie: "Intermédiaire"
       langages: ["JavaScript", "Python", "PHP"]
     - categorie: "Notions"
       langages: ["Java", "Astro", "Bootstrap"]
 
 contact:
-  numero: "06 71 98 52 33"
+  numero: "+33 6 71 98 52 33"
   mail: "caloincedric4@gmail.com"
+  permis: "Permis B + voiture"
   linkedin: "https://linkedin.com/in/c%C3%A9dric-caloin-229a26365"
   github: "https://github.com/CedricCaloin/"
 ---
