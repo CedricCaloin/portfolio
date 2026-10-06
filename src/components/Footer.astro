@@ -11,7 +11,7 @@ const {navigation, contact} = frontmatter;
                 <h4>Navigation</h4>
                 <ul class="list-group list-group-flush">
                     {navigation.map(([titre,lien] : [string,string]) => (
-                    <li class="list-group-item bg-transparent">
+                    <li class="list-group-item list-group-item-action">
                     <a class="nav-link active color-txt" aria-current="page" href={`#${lien}`}>{titre}</a>
                     </li>))}
                 </ul>
@@ -20,20 +20,20 @@ const {navigation, contact} = frontmatter;
             <div class="col-12 col-md-4 text-center">
                 <h4>Réseaux sociaux</h4>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item bg-transparent">
+                    <li class="list-group-item list-group-item-action">
                     <a class="nav-link active color-txt" aria-current="page" target="_blank" href={contact.linkedin}>
                         <i class="bi bi-linkedin fs-4 color-imp"></i>
 						<span class="ms-2">Linkedin</span>
                     </a>
                     </li>
 
-                    <li class="list-group-item bg-transparent">
+                    <li class="list-group-item list-group-item-action">
                     <a class="nav-link active color-txt" aria-current="page" target="_blank" href={contact.github}>
                         <i class="bi bi-github fs-4 color-imp"></i>
 						<span class="ms-2">Github</span></a>
                     </li>
 
-                    <li class="list-group-item bg-transparent">
+                    <li class="list-group-item list-group-item-action">
                     <a class="nav-link active color-txt" aria-current="page" target="_blank" 
                     href="mailto:caloincedric4@gmail.com">caloincedric4@gmail.com</a>
                     </li>

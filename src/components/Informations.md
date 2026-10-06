@@ -15,7 +15,7 @@ parcours:
     description: ["Institut de Génie Informatique et Industriel","Participation au projet Voltaire"]
   - titre: "Baccalauréat MATHS - NSI"
     ecole: "Lycée Edouard Branly"
-    annees: "2022 - 2025"
+    annees: "2025"
     lieu: "Boulogne-sur-mer"
     description: ["Mention très bien avec félicitations du jury","Section européenne sciences de l'ingénieur","Mention au concours général de NSI","Certification Cambridge B2"]
 
@@ -42,4 +42,27 @@ contact:
   permis: "Permis B + voiture"
   linkedin: "https://linkedin.com/in/c%C3%A9dric-caloin-229a26365"
   github: "https://github.com/CedricCaloin/"
+
+langues:
+  - langue: "Français"
+    infos: ["Langue maternelle","Projet Voltaire"]
+  - langue: "Anglais"
+    infos: ["Niveau B2","Certification Cambridge"]
+
+qualites: 
+  - "Autonome"
+  - "Organisé"
+  - "Motivé"
+  - "Travail en équipe"
+
+loisirs:
+  - activite: "Sports mécaniques"
+    description: "Passionné de MotoGP et de F1 pour l'adrénaline et la stratégie"
+  - activite: "Moto"
+    description: "Je suis actuellement en train de passer mon permis A2."
+  - activite: "Paddle"
+    description: "Être sur l'eau me procure un sentiment de liberté et de déconnexion"
+  - activite: "Programmation"
+    description: "J'aime créer de petits projets de mon coté pour le plaisir et découvrir de nouvelles technologies"
+
 ---
