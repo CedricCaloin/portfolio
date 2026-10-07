@@ -33,10 +33,44 @@ section, [id] {
   color : $blue-900;
 }
 
+.color-txtwhite {
+  color : $white;
+}
+
 .color-imp {
   color : $teal-600;
 }
 
 .color-border {
   border-color: $teal-600 !important;
+}
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+.page-a4 {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 15mm;
+  margin: 20px auto;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+}
+
+@media print {
+  body {
+    background-color: white;
+  }
+
+  .page-a4 {
+    width: 210mm;
+    height: 297mm;
+    margin: 0;
+    padding: 15mm;
+    box-shadow: none;
+    page-break-after: avoid;
+  }
 }

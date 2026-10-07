@@ -1,0 +1,49 @@
+---
+import "../layouts/Layout.astro"
+import Base from "../layouts/Layout.astro"
+
+
+const pageTitle = "CV - Cédric Caloin"
+
+import {frontmatter} from "../components/informations.md"
+
+const {parcours, sousTitre, projets, competences, contact ,qualites, loisirs} = frontmatter;
+---
+
+<Base pageTitle={pageTitle}>
+
+  <div class="d-print-none fixed-top top-10 me-1 me-md-5 text-end">
+  <button onclick="window.print();" class="btn color-bggreen color-txtwhite">
+    Télécharger / Imprimer en PDF</button>
+  </div>
+
+  <div class="page-a4">
+    <header class="text-center mb-4">
+      <h2>Cédric Caloin</h2>
+      <h5>{sousTitre}</h5>
+      
+    </header>
+
+    <main>
+
+      <div class="row row-cols-3 mx-4">
+			  <div class="col-md-5">
+          Hello
+			  </div>
+
+			  <div class="col-md-6 ms-3">
+          Bye
+			  </div>
+		  </div>
+
+
+
+      <section>
+        <h4>Mon Parcours</h4>
+        <p>IG2I - CentraleLille (2025 - 2030)</p>
+      </section>
+    </main>
+  </div>
+
+
+</Base>

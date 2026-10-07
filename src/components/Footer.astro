@@ -12,7 +12,7 @@ const {navigation, contact} = frontmatter;
                 <ul class="list-group list-group-flush">
                     {navigation.map(([titre,lien] : [string,string]) => (
                     <li class="list-group-item list-group-item-action">
-                    <a class="nav-link active color-txt" aria-current="page" href={`#${lien}`}>{titre}</a>
+                    <a class="nav-link active color-txt" aria-current="page" href={`/#${lien}`}>{titre}</a>
                     </li>))}
                 </ul>
             </div>
