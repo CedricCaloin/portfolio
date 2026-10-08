@@ -7,7 +7,7 @@ const pageTitle = "CV - Cédric Caloin"
 
 import {frontmatter} from "../components/informations.md"
 
-const {parcours, sousTitre, projets, competences, contact ,qualites, loisirs} = frontmatter;
+const {parcours, sousTitre, experiences, competences, contact ,qualites, loisirs, langues} = frontmatter;
 ---
 
 <Base pageTitle={pageTitle}>
@@ -17,31 +17,120 @@ const {parcours, sousTitre, projets, competences, contact ,qualites, loisirs} = 
     Télécharger / Imprimer en PDF</button>
   </div>
 
-  <div class="page-a4">
-    <header class="text-center mb-4">
-      <h2>Cédric Caloin</h2>
-      <h5>{sousTitre}</h5>
+  <div class="page-a4 position-relative">
+
+    <svg class="position-absolute top-0" height="297mm" width="2" style="left: 25.5mm; z-index:0;"> //lignes verticales
+      <line x1="1" y1="0" x2="1" y2="80%" stroke="#000" stroke-width="1" />
+    </svg>
+
+    <svg class="position-absolute top-0" height="297mm" width="2" style="left: calc(50% - 8.03mm); z-index:0;">
+      <line x1="1" y1="22%" x2="1" y2="95%" stroke="#000" stroke-width="1" />
+    </svg>
+
+
+    <header class="mb-4 mx-4 position-relative">
+      <h1 class="bg-white mt-4"><strong>Cédric</strong> Caloin</h1>
+      <h5 class="bg-white mt-3 py-2">{sousTitre}</h5>
       
     </header>
 
-    <main>
+    <main class="position-relative mt-5">
 
-      <div class="row row-cols-3 mx-4">
-			  <div class="col-md-5">
-          Hello
+      <div class="row row-cols-3 mx-3">
+			  <div class="col-5">
+          
+          <section class="bg-white mb-3">
+            <h4 class="my-0"><strong>CONTACT</strong></h4>
+            <p class="my-0">{contact.numero}</p>
+            <p class="my-0">{contact.mail}</p>
+            <p class="my-0">{contact.adresse}</p>
+            <p class="my-0">{contact.permis}</p>
+          </section>
+
+          <section class="pt-2 pb-3">
+            <h4 class="bg-white my-0"><strong>FORMATION</strong></h4>
+            {parcours.map((item: {titre : string, ecole : string, annees : string, infos : string[]}) => (
+            <div class="mt-1">
+              <svg width="20" height="10" viewBox="0 0 20 10" class="bg-white">
+                <circle cx="12.7" cy="5" r="4" stroke="#000" stroke-width="1.5" fill="white" />
+              </svg>
+              <span class="fw-bold"> {item.titre}</span>
+              <p class="bg-white my-0">{item.ecole}</p>
+              <ul class="bg-white ms-3">
+                {item.infos.slice(0,1).map((description: string) => (
+                <li class="my-0">{description}</li>
+                ))}
+              </ul>
+            </div>
+            ))}
+          </section>
+
+          <section class="pt-2 pb-1 bg-white">
+            <h4 class="bg-white my-0"><strong>COMPETENCES</strong></h4>
+            <ul>
+              <li class="my-0">Programmation :</li>
+              {competences.programmation.slice(0,2).map((item: {categorie : string, langages : string[]}) => (
+              <p class="my-0 lh-sm"> - {item.categorie} en {item.langages[0]} / {item.langages[1]} / {item.langages[2]}</p>
+              ))}
+              {qualites.map((item: string) => (
+              <li class="my-0">{item}</li>
+              ))}
+            </ul>
+          </section>
+
+          <section class="pt-2 pb-1 bg-white">
+            <h4 class="bg-white my-0"><strong>LOISIRS</strong></h4>
+            <ul>
+              {loisirs.map((item: {activite: string}) => (
+              <li class="my-0">{item.activite}</li>
+              ))}
+            </ul>
+          </section>
+
+
 			  </div>
 
-			  <div class="col-md-6 ms-3">
-          Bye
+			  <div class="col-7">
+          
+          <section class="mb-3">
+            <h4 class="bg-white my-0"><strong>EXPÉRIENCES PROFESIONNELLES</strong></h4>
+            {experiences.slice(0,4).map((item: {titre : string, date : string, infos : string[]}) => (
+            <div class="mt-1">
+              <svg width="20" height="10" viewBox="0 0 20 10" class="bg-white">
+                <circle cx="12.7" cy="5" r="4" stroke="#000" stroke-width="1.5" fill="white" />
+              </svg>
+              <span class="bg-white fw-bold"> {item.titre}</span>
+              <p class="bg-white ms-4 my-0">{item.date}</p>
+              <ul class="bg-white ms-3">
+              {item.infos.map((description: string) => (
+              <li class="my-0">{description}</li>
+              ))}
+            </ul>
+            </div>
+            ))}
+          </section>
+
+          <section class="pt-2 pb-1">
+            <h4 class="bg-white my-0"><strong>LANGUES</strong></h4>
+            {langues.map((item: {langue : string, infos : string[]}) => (
+            <div class="mt-1">
+              <svg width="20" height="10" viewBox="0 0 20 10" class="bg-white">
+                <circle cx="12.7" cy="5" r="4" stroke="#000" stroke-width="1.5" fill="white" />
+              </svg>
+              <span class="bg-white fw-bold"> {item.langue}</span>
+              <ul class="bg-white ms-3">
+              {item.infos.map((description: string) => (
+              <li class="my-0">{description}</li>
+              ))}
+            </ul>
+            </div>
+            ))}
+          </section>
+
 			  </div>
 		  </div>
 
 
-
-      <section>
-        <h4>Mon Parcours</h4>
-        <p>IG2I - CentraleLille (2025 - 2030)</p>
-      </section>
     </main>
   </div>
 
