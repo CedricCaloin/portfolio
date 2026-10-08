@@ -1,6 +1,7 @@
 ---
 import {frontmatter} from "./Informations.md"
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const {navigation} = frontmatter;
 
 ---
@@ -14,11 +15,11 @@ const {navigation} = frontmatter;
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-5">
         {navigation.map(([titre,lien] : [string,string]) => (
         <li class="nav-item">
-          <a class="nav-link color-txt" href={`/#${lien}`}>{titre}</a>
+          <a class="nav-link color-txt" href={`${base}/#${lien}`}>{titre}</a>
         </li>))}
       </ul>
 
-      <a type="button" href="/cv" class="btn color-bggreen color-txtwhite me-5">CV en pdf</a>
+      <a type="button" href={`${base}/cv`} class="btn color-bggreen color-txtwhite me-5">CV en pdf</a>
 
     </div>
   </div>

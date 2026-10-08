@@ -1,6 +1,7 @@
 ---
 import {frontmatter} from "./Informations.md"
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const {navigation, contact} = frontmatter;
 ---
 <div id="footer" class="color-cards d-print-none border-top border-2 mt-10 mb-0">
@@ -12,7 +13,7 @@ const {navigation, contact} = frontmatter;
                 <ul class="list-group list-group-flush">
                     {navigation.map(([titre,lien] : [string,string]) => (
                     <li class="list-group-item list-group-item-action">
-                    <a class="nav-link active color-txt" aria-current="page" href={`/#${lien}`}>{titre}</a>
+                    <a class="nav-link active color-txt" aria-current="page" href={`${base}/#${lien}`}>{titre}</a>
                     </li>))}
                 </ul>
             </div>
