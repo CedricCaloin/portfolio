@@ -20,12 +20,16 @@ parcours:
     infos: ["Mention très bien avec félicitations du jury","Section européenne sciences de l'ingénieur","Mention au concours général de NSI","Certification Cambridge B2"]
 
 projets:
-  - titre: "PIND - CyberChest"
-    type: "scolaire"
-    domaine: "industriel"
-  - titre: "PINF - 2ITech"
-    type: "scolaire"
+  - titre: "Mon Portfolio"
+    type: "personnel"
     domaine: "informatique"
+    images: ["portfolio1.png",portfolio2.png]
+    infos: "Ce site me permet de centraliser toutes les informations me concernant comme mes projets et mon CV. J'ai pu découvrir astro et bootstrap avec un projet concret et utile.<br />Il fonctionne avec une page .md qui contient toutes les informations qui sont ensuite intégrées à cette page mais également à mon CV."
+  - titre: "Frein à main"
+    type: "personnel"
+    domaine: "industriel"
+    images: ["fàm1.jpg","fàm2.jpg"]
+    infos: "J'ai réalisé de A à Z un frein à main pour simracing, de sa conception 3D sur OnShape au montage.<br />Il fonctionne grâce à une carte zero delay qui est détectée par l'ordinateur directement comme un controleur, ce qui permet de faire fonctionner le frein sans aucune partie programmation."
 
 competences:
   programmation:

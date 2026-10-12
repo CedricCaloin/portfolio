@@ -70,18 +70,20 @@ const {parcours, sousTitre, projets, competences, contact ,qualites, loisirs} = 
   		</div>
 
 		<div id="listeProjets" class="row row-cols-1 row-cols-md-2 g-4 m-3">
-			{projets.map((item: {titre : string, type : string, domaine : string}) => (
+			{projets.map((item: {titre : string, type : string, domaine : string, images : string[], infos : string}) => (
 			<div class="col" data-type={item.type} data-domaine={item.domaine}>
 				<div class="card h-100 color-border border-2 color-txt">
-				<img src="..." class="card-img-top" alt="...">
-				<div class="card-body">
-					<h5 class="card-title">{item.titre}</h5>
-					<ul class="list-group list-group-horizontal">
-  					<li class="list-group-item">{item.type}</li>
-						<li class="list-group-item">{item.domaine}</li>
-					</ul>
-					<p class="card-text">This inal content. This content is a little bit longer.</p>
-				</div>
+					<div>
+					<img src={`/src/assets/${item.images[0]}`} class="card-img-top img-projet" alt={item.titre}>
+					</div>
+					<div class="card-body">
+						<h5 class="card-title">{item.titre}</h5>
+						<ul class="list-group list-group-horizontal">
+						<li class="list-group-item">{item.type}</li>
+							<li class="list-group-item">{item.domaine}</li>
+						</ul>
+						<p class="card-text" set:html={item.infos}></p>
+					</div>
 				</div>
 			</div>))}
 		</div>

@@ -45,6 +45,15 @@ section, [id] {
   border-color: $teal-600 !important;
 }
 
+.img-vertical {
+  flex-direction: row; 
+  align-items: flex-start;
+}
+
+.img-vertical div {
+  max-width: 50%;
+}
+
 @page {
   size: A4 portrait;
   margin: 0;

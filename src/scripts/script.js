@@ -1,4 +1,5 @@
 const checkboxes = document.querySelectorAll('.btn-check');
+const imgProjets = document.querySelectorAll('.img-projet');
 var tab = {"scolaire":true,"personnel":true,"informatique":true,"industriel":true}
 
 
@@ -24,8 +25,12 @@ checkboxes.forEach((checkbox) => {
                     // Si les 2 attributs sont cochés, on l'affiche
                 }
             }
-        }
-
-      console.log(`Checkbox ${event.target.value} : ${event.target.checked}`);
+        };
     });
   });
+
+  imgProjets.forEach((imgProjet) => {
+    if (imgProjet.naturalHeight > imgProjet.naturalWidth) {
+      imgProjet.parentElement.parentElement.classList.add("img-vertical");
+    }
+  })
