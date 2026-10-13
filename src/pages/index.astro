@@ -77,11 +77,8 @@ const {parcours, sousTitre, projets, competences, contact ,qualites, loisirs} = 
 					<img src={`/src/assets/${item.images[0]}`} class="card-img-top img-projet" alt={item.titre}>
 					</div>
 					<div class="card-body">
-						<h5 class="card-title">{item.titre}</h5>
-						<ul class="list-group list-group-horizontal">
-						<li class="list-group-item">{item.type}</li>
-							<li class="list-group-item">{item.domaine}</li>
-						</ul>
+						<span class="card-title h5">{item.titre}</span>
+						<span class="color-imp ms-5">{item.type} / {item.domaine}</span>
 						<p class="card-text" set:html={item.infos}></p>
 					</div>
 				</div>
