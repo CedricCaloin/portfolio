@@ -27,10 +27,10 @@ checkboxes.forEach((checkbox) => {
             }
         };
     });
-  });
+});
 
-  imgProjets.forEach((imgProjet) => {
+imgProjets.forEach((imgProjet) => {
     if (imgProjet.naturalHeight > imgProjet.naturalWidth) {
       imgProjet.parentElement.parentElement.classList.add("img-vertical");
     }
-  })
+})
