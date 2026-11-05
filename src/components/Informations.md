@@ -30,6 +30,11 @@ projets:
     domaine: "industriel"
     images: ["fàm1.jpg","fàm2.jpg"]
     infos: "J'ai réalisé de A à Z un frein à main pour simracing, de sa conception 3D sur OnShape au montage.<br />Il fonctionne grâce à une carte zero delay qui est détectée par l'ordinateur directement comme un controleur, ce qui permet de faire fonctionner le frein sans aucune partie programmation."
+  - titre: "Java-TCP-Messenger"
+    type: "personnel"
+    domaine: "informatique"
+    images: ["jchat1.png"]
+    infos: "J'ai réalisé cette application permettant de communiquer entre plusieurs ordinateurs en Java.<br />Elle utilse swing pour l'interface graphique et m'a permis de découvrir le principe des sockets et des threads. Vous pouvez la retrouver ainsi que son code sur mon Github."
 
 competences:
   programmation:
