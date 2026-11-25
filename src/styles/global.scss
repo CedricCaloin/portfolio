@@ -41,17 +41,31 @@ section, [id] {
   color : $teal-600;
 }
 
-.color-border {
-  border-color: $teal-600 !important;
+.img-projet {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  padding : 1%;
 }
 
-.img-vertical {
-  flex-direction: row; 
-  align-items: flex-start;
+.btn-filtre {
+  background-color: $white;
+  color: $black;
+  border: 1px solid $gray-200;
 }
 
-.img-vertical div {
-  max-width: 50%;
+.btn-check:checked + .btn-filtre {
+  background-color: $teal-600;
+  border-color: $teal-600;
+  color: $white;
+}
+
+.survol {
+  transition: all 0.2s ease;
+}
+
+.survol:hover {
+  transform: translateY(-2px);
 }
 
 @page {

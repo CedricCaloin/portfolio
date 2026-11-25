@@ -23,7 +23,7 @@ const {parcours, sousTitre, projets, competences, contact ,qualites, loisirs} = 
 	<div class="row m-3">
 		{parcours.map((item: {titre : string, ecole : string, annees : string, lieu : string, infos : string[]}) => (
 		<div class="col-sm-6 mb-3 mb-sm-0">
-			<div class="card h-100 border border-2 color-cards color-border rounded-3">
+			<div class="survol card h-100 border border-0 shadow-sm rounded-4 color-cards rounded-3">
 			<div class="card-body color-txt position-relative">
 				<div class="card-title m-3 d-flex justify-content-between align-items-center">
 					<span class="h4 mb-0">{item.titre}</span>
@@ -43,42 +43,51 @@ const {parcours, sousTitre, projets, competences, contact ,qualites, loisirs} = 
 	<h2 id="Projets" class="mx-10 mt-10"><strong>MES PROJETS</strong></h2>
 
 	<div class=" container-fluid">
-		<div class="color-bggreen my-3 mx-2 ms-md-4 rounded-pill p-4 p-md-2 d-inline-block">
+		<div class=" my-3 mx-2 ms-md-4 rounded-pill p-md-2 d-inline-block">
 			<div class="row row-cols-2 row-cols-md-auto g-2 justify-content-center align-items-center">
 			
 			<div class="col text-center">
 				<input type="checkbox" class="btn-check" id="scolaire" value="scolaire" checked autocomplete="off" />
-				<label class="btn btn-outline-light w-100 rounded-pill" for="scolaire">scolaire</label>
+				<label class="survol btn btn-filtre w-100 rounded-pill" for="scolaire">scolaire</label>
 			</div>
 
 			<div class="col text-center">
 				<input type="checkbox" class="btn-check" id="personnel" value="personnel" checked autocomplete="off" />
-				<label class="btn btn-outline-light w-100 rounded-pill" for="personnel">personnel</label>
+				<label class="survol btn btn-filtre w-100 rounded-pill" for="personnel">personnel</label>
 			</div>
 
 			<div class="col text-center">
 				<input type="checkbox" class="btn-check" id="informatique" value="informatique" checked autocomplete="off" />
-				<label class="btn btn-outline-light w-100 rounded-pill" for="informatique">informatique</label>
+				<label class="survol btn btn-filtre w-100 rounded-pill" for="informatique">informatique</label>
 			</div>
 
 			<div class="col text-center">
 				<input type="checkbox" class="btn-check" id="industriel" value="industriel" checked autocomplete="off" />
-				<label class="btn btn-outline-light w-100 rounded-pill" for="industriel">industriel</label>
+				<label class="survol btn btn-filtre w-100 rounded-pill" for="industriel">industriel</label>
 			</div>
 
     		</div>
   		</div>
 
-		<div id="listeProjets" class="row row-cols-1 row-cols-md-2 g-4 m-3">
+		<div id="listeProjets" class="row row-cols-1 row-cols-md-2 g-4 mx-3">
 			{projets.map((item: {titre : string, type : string, domaine : string, images : string[], infos : string}) => (
 			<div class="col" data-type={item.type} data-domaine={item.domaine}>
-				<div class="card h-100 color-border border-2 color-txt">
-					<div>
+				<div class="survol card h-100 border-0 shadow-sm rounded-4 color-txt">
+					<div class="ratio ratio-16x9">
 					<img src={`${base}/${item.images[0]}`} class="card-img-top img-projet" alt={item.titre}>
 					</div>
 					<div class="card-body">
-						<span class="card-title h5">{item.titre}</span>
-						<span class="color-imp ms-5">{item.type} / {item.domaine}</span>
+						<div class="d-flex justify-content-between align-items-start gap-2 mb-3">
+							<span class="card-title h5 fw-bold mb-0">{item.titre}</span>
+							<div class="d-flex flex-wrap gap-1 justify-content-end flex-shrink-0">
+							<span class="badge rounded-pill bg-success-subtle text-success-emphasis fw-medium">
+								{item.type}
+							</span>
+							<span class="badge rounded-pill bg-secondary-subtle text-secondary-emphasis fw-medium">
+								{item.domaine}
+							</span>
+							</div>
+						</div>
 						<p class="card-text" set:html={item.infos}></p>
 					</div>
 				</div>
@@ -92,7 +101,7 @@ const {parcours, sousTitre, projets, competences, contact ,qualites, loisirs} = 
 	<div class="container-fluid">
 		<div class="row row-cols-1 row-cols-md-3 g-4 m-3">
 			<div class="col-md-8">
-				<div class="card h-100 color-border border-2 color-txt">
+				<div class="survol card h-100 border-0 shadow-sm rounded-4 color-txt">
 				<div class="card-body">
 					<h3 class="card-title text-center">COMPÉTENCES</h3>
 
@@ -113,7 +122,7 @@ const {parcours, sousTitre, projets, competences, contact ,qualites, loisirs} = 
 			</div>
 
 			<div class="col-md-4">
-				<div class="card h-100 color-border border-2 color-txt">
+				<div class="survol card h-100 border-0 shadow-sm rounded-4 color-txt">
 				<div class="card-body">
 					<h3 class="card-title text-center">CONTACT</h3>
 
@@ -148,7 +157,7 @@ const {parcours, sousTitre, projets, competences, contact ,qualites, loisirs} = 
 
 		<div class="row row-cols-1 row-cols-md-3 g-4 mx-3">
 			<div class="col-md-4">
-				<div class="card h-100 color-border border-2 color-txt">
+				<div class="survol card h-100 border-0 shadow-sm rounded-4 color-txt">
 					<div class="card-body">
 						<h3 class="card-title text-center">QUALITÉS</h3>
 						<ol class="list-group mt-auto">
@@ -161,7 +170,7 @@ const {parcours, sousTitre, projets, competences, contact ,qualites, loisirs} = 
 			</div>
 
 			<div class="col-md-8">
-				<div class="card h-100 color-border border-2 color-txt">
+				<div class="survol card h-100 border-0 shadow-sm rounded-4 color-txt">
 					<div class="card-body">
 						<h3 class="card-title text-center">LOISIRS</h3>
 						<ol class="list-group mt-auto">
